@@ -4,11 +4,11 @@ import About from './Component/About';
 import Navbar from './Component/Navbar'
 import TextForm from './Component/TextForm'
 import Alert from './Component/Alert';
-import {
-  BrowserRouter as Router,
-  Routes ,
-  Route
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes ,
+//   Route
+// } from "react-router-dom";
 function App() {
  const[mode,setMode]= useState("light");
  const[alert,setAlert]= useState(null);
@@ -57,7 +57,7 @@ setTimeout(()=>{
 
   return (
     <>
-      <Router>
+      {/* <Router>
       <Navbar Title="My Todo List" SearchBar={false} mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
       <Routes >
@@ -67,7 +67,10 @@ setTimeout(()=>{
           </Route> 
         </Routes >
 
-       </Router>
+       </Router> */}
+        <Navbar Title="My Todo List" SearchBar={false} mode={mode} toggleMode={toggleMode}/>
+      <Alert alert={alert}/>
+       <TextForm showAlert={showAlert} heading="Enter The Text to analyze below"  mode={mode}/>
     </>
   );
 }
