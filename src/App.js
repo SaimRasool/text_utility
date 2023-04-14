@@ -54,10 +54,7 @@ setTimeout(()=>{
   setAlert(null);
 },1500)
 }
-
-  return (
-    <>
-      {/* <Router>
+/* <Router>
       <Navbar Title="My Todo List" SearchBar={false} mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
       <Routes >
@@ -67,7 +64,10 @@ setTimeout(()=>{
           </Route> 
         </Routes >
 
-       </Router> */}
+       </Router> */
+  return (
+    <>
+    
         <Navbar Title="My Todo List" SearchBar={false} mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
        <TextForm showAlert={showAlert} heading="Enter The Text to analyze below"  mode={mode}/>
