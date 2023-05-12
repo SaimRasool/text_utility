@@ -50,24 +50,25 @@ const TextForm = props => {
     <div className='container' style={{color:props.mode==="dark"?"white":"black"}}>  
     <h2 className='my-3' >{props.heading} </h2>
         <div className='mb-3'>
-            <textarea className='form-control my-2' value={text} id='myBox'onChange={handleChange} rows='3' style={{backgroundColor:props.mode==="dark"?"#212529":"white",color:props.mode==="dark"?"white":"black"}}></textarea>
-            <button className='btn btn-primary mx-2' onClick={handleClick}>Convert to Upercase</button>
-            <button className='btn btn-primary mx-2' onClick={handleLowClick}>Convert to Lowercase</button>
-            <button className='btn btn-primary mx-2' onClick={handleDuplicateClick}>Remove Duplicate</button>
-            <button className='btn btn-primary mx-2' onClick={handleClearClick}>Clear Text</button>
-            <button className='btn btn-primary mx-2' onClick={handleReverseClick}>Reverse Text</button>
-            <button className='btn btn-primary mx-2' onClick={handleSpaceeClick}>Extra Space</button>
+            <textarea className='form-control  my-2' value={text} id='myBox'onChange={handleChange} rows='3' style={{backgroundColor:props.mode==="dark"?"#212529":"white",color:props.mode==="dark"?"white":"black"}}></textarea>
+            <button disabled={text.length===0} className='btn btn-primary mx-1 my-2' onClick={handleClick}>Convert to Upercase</button>
+            <button disabled={text.length===0} className='btn btn-primary mx-2 my-2' onClick={handleLowClick}>Convert to Lowercase</button>
+            <button disabled={text.length===0} className='btn btn-primary mx-2 my-2' onClick={handleDuplicateClick}>Remove Duplicate</button>
+            <button disabled={text.length===0} className='btn btn-primary mx-2 my-2' onClick={handleClearClick}>Clear Text</button>
+            <button disabled={text.length===0} className='btn btn-primary mx-2 my-2' onClick={handleReverseClick}>Reverse Text</button>
+            <button disabled={text.length===0} className='btn btn-primary mx-2 my-2' onClick={handleSpaceeClick}>Extra Space</button>
         </div>
     </div>
     <div className="container my-3" style={{color:props.mode==="dark"?"white":"black"}}>
         <h1>Your Text Summary</h1>
         <p>
-            {text.length===0?0:text.trim().split(" ").length} words and {text.length} characters
+            {/* {text.length===0?0:text.trim().split(" ").length} words and {text.length} characters */}
+            {text.split(/\s+/).filter((e)=>{return e.length>0}).length} words and {text.length} characters
         </p>
         <p>
              {text.replace(/^\s+|\s+$/gm,'').length} characters without spaces
         </p>
-        <p>            {text.split(" ").length * 0.008}   Minutes Read</p>
+        <p>            {text.split(" ").filter((e)=>{return e.length>0}).length * 0.008}   Minutes Read</p>
         <h2> Preview</h2>
         <p>{text}</p>
     </div>
